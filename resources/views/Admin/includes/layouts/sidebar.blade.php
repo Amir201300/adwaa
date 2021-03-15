@@ -39,23 +39,14 @@
                     <span class="hide-menu">الاعدادات الرئيسية</span>
                 </li>
 
-{{--                <li class="sidebar-item">--}}
-{{--                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('admin.dashboard')}}"--}}
-{{--                       aria-expanded="false">--}}
-{{--                        <i class="fa fa-home"></i>--}}
-{{--                        <span class="hide-menu">الصفحة الرئيسية</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-
-                @if(in_array(2,adminsRoleArray(Auth::guard('Admin')->user())))
                 <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Category.index')}}"
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('admin.dashboard')}}"
                        aria-expanded="false">
-                        <i class="icon-Bulleted-List"></i>
-                        <span class="hide-menu">الاقسام</span>
+                        <i class="fa fa-home"></i>
+                        <span class="hide-menu">الصفحة الرئيسية</span>
                     </a>
                 </li>
-                @endif
+
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -73,74 +64,19 @@
                             </a>
                         </li>
                         @endif
-                            @if(in_array(10,adminsRoleArray(Auth::guard('Admin')->user())))
-                        <li class="sidebar-item">
-                            <a class="sidebar-link  waves-effect waves-dark"
-                               href="{{route('User.index')}}" aria-expanded="false">
-                                <i class="icon-Add-UserStar"></i>
-                                <span class="hide-menu">الاعضاء</span>
-                            </a>
-                        </li>
-                                @endif
-
 
                     </ul>
                 </li>
 
-                @if(in_array(3,adminsRoleArray(Auth::guard('Admin')->user())))
                 <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Color.index')}}"
+                    <a class="sidebar-link  waves-effect waves-dark" href="#"
                        aria-expanded="false">
                         <i class="icon-Font-Color"></i>
-                        <span class="hide-menu">الوان المنتجات</span>
+                        <span class="hide-menu">صور السليدر</span>
                     </a>
                 </li>
-                @endif
-                @if(in_array(4,adminsRoleArray(Auth::guard('Admin')->user())))
-                <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Product.index')}}"
-                       aria-expanded="false">
-                        <i class="icon-Shopping-Bag"></i>
-                        <span class="hide-menu">المنتجات</span>
-                    </a>
-                </li>
-                @endif
-                @if(in_array(5,adminsRoleArray(Auth::guard('Admin')->user())))
-                <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Brands.index')}}"
-                       aria-expanded="false">
-                        <i class="fa fa-calendar-check"></i>
-                        <span class="hide-menu">الماركات</span>
-                    </a>
-                </li>
-                @endif
-                @if(in_array(8,adminsRoleArray(Auth::guard('Admin')->user())))
-                <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Sliders.index')}}"
-                       aria-expanded="false">
-                        <i class="icon-File-Block"></i>
-                        <span class="hide-menu">صور السلايدرز</span>
-                    </a>
-                </li>
-                @endif
-                @if(in_array(7,adminsRoleArray(Auth::guard('Admin')->user())))
-                <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Order.index')}}"
-                       aria-expanded="false">
-                        <i class="icon-Data-Clock"></i>
-                        <span class="hide-menu">الطلبات</span>
-                    </a>
-                </li>
-                @endif
-                @if(in_array(6,adminsRoleArray(Auth::guard('Admin')->user())))
-                <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Discount_code.index')}}"
-                       aria-expanded="false">
-                        <i class="icon-Coin"></i>
-                        <span class="hide-menu">اكواد الخصم</span>
-                    </a>
-                </li>
-            @endif
+
+
 
 
                 <!--end main routes section-->

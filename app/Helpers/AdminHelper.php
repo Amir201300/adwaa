@@ -3,7 +3,7 @@
  * @return string
  */
 function getLogo(){
-    return '/Admin/logo.png';
+    return '/Fronted/images/logo.png';
 }
 
 /**
@@ -12,65 +12,34 @@ function getLogo(){
  */
 function getAdminImage($image){
     if($image)
-        return get_user_lang('Admin',$image);
+        return getImageUrl('Admin',$image);
     return defaultImages(2);
 }
 
-
-function getCurrency(){
-    return 'LE';
-}
 
 function getNameInIndexPage(){
     return 'متجر النخبة';
 }
 
-
-function getMoneyModelType($type){
-    if($type == 1)
-        $name='يومية';
-    if($type == 5)
-        $name='فواتير';
-    if($type == 4)
-        $name='موظفين';
-
-    return $name;
-}
-
-/**
- * @return array
- */
-function getMoneyModelTypes(){
-    return [
-      [
-          'يومية',
-          1
-      ],
-        [
-            'عملاء',
-            2
-        ],
-        [
-            'موردون',
-            3
-        ],
-        [
-            'موظفين',
-            4
-        ],
-        [
-            'فواتير',
-            5
-        ],
-        [
-            'بنوك',
-            7
-        ],
-    ];
-}
-
 function getCounts($model){
     return $model->count();
 }
+
+/**
+ * @param $admin
+ * @return array
+ */
+function adminsRoleArray($admin){
+    if($admin->id != 1) {
+        $array = [];
+        foreach ($admin->roles as $row) {
+            $array[] = $row->id;
+        }
+    }else{
+        $array=[1,2,3,4,5,6,7,8,9,10,11];
+    }
+    return $array;
+}
+
 
 
