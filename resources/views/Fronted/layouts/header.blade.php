@@ -50,8 +50,8 @@
                         <li><a href="hawkama.html"> الحوكمة والتقارير</a></li>
                         <li><a href="hemm.html">اصحاب الهمم</a></li>
                         <li><a href="about.html"> تعرف علينا</a></li>
-                        <li><a href="voulnter.html">  وحدة التطوع </a></li>
-                        <li><a href="media.html">  المركز الإعلامي </a></li>
+                        <li><a href="{{route('General.volunteer')}}">  وحدة التطوع </a></li>
+                        <li><a href="{{route('General.media')}}">  المركز الإعلامي </a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">الخدمات الإلكترونية <span class="caret"></span></a>
                             <ul class="dropdown-menu">

@@ -48,33 +48,34 @@
                 </li>
 
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                       aria-expanded="false">
-                        <i class="icon-Add-UserStar"></i>
-                        <span class="hide-menu"> المديرين والمستخدمين </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        @if(in_array(9,adminsRoleArray(Auth::guard('Admin')->user())))
-                        <li class="sidebar-item">
-                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Admin.index')}}"
-                               aria-expanded="false">
-                                <i class="icon-Administrator"></i>
-                                <span class="hide-menu">المديرين</span>
-                            </a>
-                        </li>
-                        @endif
+{{--                <li class="sidebar-item">--}}
+{{--                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
+{{--                       aria-expanded="false">--}}
+{{--                        <i class="icon-Add-UserStar"></i>--}}
+{{--                        <span class="hide-menu"> المديرين والمستخدمين </span>--}}
+{{--                    </a>--}}
+{{--                    <ul aria-expanded="false" class="collapse  first-level">--}}
+{{--                        @if(in_array(9,adminsRoleArray(Auth::guard('Admin')->user())))--}}
+{{--                        <li class="sidebar-item">--}}
+{{--                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Admin.index')}}"--}}
+{{--                               aria-expanded="false">--}}
+{{--                                <i class="icon-Administrator"></i>--}}
+{{--                                <span class="hide-menu">المديرين</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        @endif--}}
 
-                    </ul>
-                </li>
-
+{{--                    </ul>--}}
+{{--                </li>--}}
+                @foreach(slidersMainLinks() as $row)
                 <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="#"
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route($row[2])}}"
                        aria-expanded="false">
-                        <i class="icon-Font-Color"></i>
-                        <span class="hide-menu">صور السليدر</span>
+                        <i class="{{$row[0]}}"></i>
+                        <span class="hide-menu">{{$row[1]}}</span>
                     </a>
                 </li>
+                @endforeach
 
 
 

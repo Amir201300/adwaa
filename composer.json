@@ -53,7 +53,7 @@
             "app/Helpers/imagesHelper.php",
             "app/Helpers/EmailsHelper.php",
             "app/Helpers/MainFunctionHelper.php",
-            "app/Helpers/ProductHelper.php",
+            "app/Helpers/FrontedHelper.php",
             "app/Helpers/AdminHelper.php"
         ]
     },
