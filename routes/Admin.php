@@ -72,6 +72,27 @@ Route::prefix('Admin')->group(function () {
             Route::get('/view/{id}', 'TeamController@view')->name('Team.View');
         });
 
+        /** BlogCat Route */
+        Route::prefix('BlogCat')->group(function () {
+            Route::get('/index', 'BlogCatController@index')->name('BlogCat.index');
+            Route::get('/allData', 'BlogCatController@allData')->name('BlogCat.allData');
+            Route::post('/create', 'BlogCatController@create')->name('BlogCat.create');
+            Route::get('/edit/{id}', 'BlogCatController@edit')->name('BlogCat.edit');
+            Route::post('/update', 'BlogCatController@update')->name('BlogCat.update');
+            Route::get('/destroy/{id}', 'BlogCatController@destroy')->name('BlogCat.destroy');
+        });
+
+        /** Blog Route */
+        Route::prefix('Blog')->group(function () {
+            Route::get('/index', 'BlogController@index')->name('Blog.index');
+            Route::get('/allData', 'BlogController@allData')->name('Blog.allData');
+            Route::post('/create', 'BlogController@create')->name('Blog.create');
+            Route::get('/edit/{id}', 'BlogController@edit')->name('Blog.edit');
+            Route::post('/update', 'BlogController@update')->name('Blog.update');
+            Route::get('/destroy/{id}', 'BlogController@destroy')->name('Blog.destroy');
+            Route::get('/ChangeStatus/{id}', 'BlogController@ChangeStatus')->name('Blog.ChangeStatus');
+        });
+
         /** Skills Route */
         Route::prefix('Skills')->group(function () {
             Route::get('/allData/{id}', 'SkillsController@allData')->name('Skills.allData');

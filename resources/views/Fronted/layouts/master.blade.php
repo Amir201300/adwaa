@@ -30,11 +30,13 @@
     <link rel="stylesheet" type="text/css" href="/Fronted/style.css">
     <link rel="stylesheet" type="text/css" href="/Fronted/space.css">
     <link rel="stylesheet" type="text/css" href="/Fronted/responsive.css">
+    <link href="/Admin/toast/jquery.toast.css" rel="stylesheet"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="/Fronted/js/html5shiv.min.js"></script>
     <script src="/Fronted//js/respond.min.js"></script>
+
     <![endif]-->
 </head>
 <body>
@@ -65,10 +67,12 @@
 <script type="text/javascript" src="/Fronted/js/jquery.counterup.min.js"></script>
 
 <!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYMloK_kzsasOQXg-xhGxnwvlAU3HTZWg&callback=initMap" async
-        defer></script>
 
 <!-- Custom JS -->
 <script type="text/javascript" src="/Fronted/js/custom.js"></script>
+
+@yield('script')
 </body>
 </html>
+
+
