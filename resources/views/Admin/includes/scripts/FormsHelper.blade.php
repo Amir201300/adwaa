@@ -1,22 +1,22 @@
 <script>
-function addFunction() {
-save_method = 'add';
+    function addFunction() {
+        save_method = 'add';
 
-$('#save').text('حفظ');
+        $('#save').text('حفظ');
 
-$('#titleOfModel').text($('#titleOfText').text());
+        $('#titleOfModel').text($('#titleOfText').text());
 
-$('#formSubmit')[0].reset();
+        $('#formSubmit')[0].reset();
 
-$('#formModel').modal();
-}
+        $('#formModel').modal();
+    }
 </script>
 
 <script>
-    function saveOrUpdate(url){
+    function saveOrUpdate(url) {
         $("#save").attr("disabled", true);
 
-        Toset('الطلب قيد التتنفيد','info','يتم تنفيذ طلبك الان',false);
+        Toset('الطلب قيد التتنفيد', 'info', 'يتم تنفيذ طلبك الان', false);
         var id = $('#id').val();
 
         var formData = new FormData($('#formSubmit')[0]);
@@ -72,13 +72,9 @@ $('#formModel').modal();
             if (jQuery.inArray(id, checkArray) === -1 || checkArray.length === 0) {
 
                 checkArray.push(id);
-
             }
-
         } else {
-
             checkArray.splice(checkArray.indexOf(id), 1);
-
         }
         console.log(checkArray);
     }
@@ -89,11 +85,7 @@ $('#formModel').modal();
     function deleteProccess(url) {
 
         swal({
-
-
             title: "هل انت متاكد ؟",
-
-
             icon: "warning",
 
 
@@ -104,7 +96,7 @@ $('#formModel').modal();
 
         }).then((willDelete) => {
             if (willDelete) {
-                Toset('الطلب قيد التتنفيد','info','يتم تنفيذ طلبك الان',false);
+                Toset('الطلب قيد التتنفيد', 'info', 'يتم تنفيذ طلبك الان', false);
                 $.ajax({
 
                     url: url,
@@ -118,7 +110,7 @@ $('#formModel').modal();
                         $.toast().reset('all');
                     },
                     error: function () {
-                        Toset('خطا','error','حدث خطا حاول مجددا',false);
+                        Toset('خطا', 'error', 'حدث خطا حاول مجددا', false);
                     }
                 });
 
@@ -131,15 +123,14 @@ $('#formModel').modal();
 </script>
 
 
-
 <script>
-    function sendAjaxForm(url,model,submitButton,formName){
-        $("#"+submitButton).attr("disabled", true);
+    function sendAjaxForm(url, model, submitButton, formName) {
+        $("#" + submitButton).attr("disabled", true);
 
-        Toset('الطلب قيد التتنفيد','info','يتم تنفيذ طلبك الان',false);
+        Toset('الطلب قيد التتنفيد', 'info', 'يتم تنفيذ طلبك الان', false);
         var id = $('#id').val();
 
-        var formData = new FormData($('#'+formName)[0]);
+        var formData = new FormData($('#' + formName)[0]);
 
         $.ajax({
             url: url,
@@ -156,14 +147,14 @@ $('#formModel').modal();
                         icon: "success",
                     });
                     table.ajax.reload();
-                    $("#"+model).modal('toggle');
-                    $("#"+submitButton).attr("disabled", false);
+                    $("#" + model).modal('toggle');
+                    $("#" + submitButton).attr("disabled", false);
                     $('#err').slideUp(200);
                 }
             },
             error: function (y) {
-            alert('حاول مجددا')
-                $("#"+submitButton).attr("disabled", false);
+                alert('حاول مجددا')
+                $("#" + submitButton).attr("disabled", false);
 
             }
         });

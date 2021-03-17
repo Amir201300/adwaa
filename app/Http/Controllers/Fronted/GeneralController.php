@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Fronted;
 
 use App\Interfaces\UserInterface;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator,Auth,Artisan,Hash,File,Crypt;
@@ -16,7 +17,10 @@ class GeneralController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function media (){
-        return view('Fronted.GeneralPages.media');
+        $media=Media::where('status',1)->where('image','!=',null)->paginate(36);
+        $title='المركز الاعلامي';
+        $folder='Media';
+        return view('Fronted.GeneralPages.media',compact('media','title','folder'));
     }
 
     /**
@@ -24,7 +28,6 @@ class GeneralController extends Controller
      */
     public function volunteer(){
         return view('Fronted.GeneralPages.volunteer');
-
     }
 
 }

@@ -35,7 +35,7 @@ $sliders=\App\Models\Slider::where('status',1)->where('image','!=',null)->get();
                 </div>
             </div>
             <div class="col-xs-6">
-                <div class="quicklinks2"><a href="hemm.html"> <img src="/Fronted/images/quicklinks_2.png"> أصحاب الهمم </a></div>
+                <div class="quicklinks2"><a href="{{route('Team.Team')}}"> <img src="/Fronted/images/quicklinks_2.png"> أصحاب الهمم </a></div>
             </div>
         </div>
     </div>

@@ -27,3 +27,8 @@ Route::get('/', function () {
 Route::get('/media', 'GeneralController@media')->name('General.media');
 Route::get('/volunteer', 'GeneralController@volunteer')->name('General.volunteer');
 
+/** Team Routes */
+Route::get('/Team', 'TeamController@Team')->name('Team.Team');
+Route::get('/Team/singleTeam', 'TeamController@singleTeam')->name('Team.singleTeam');
+Route::get('/Team/teamWork', 'TeamController@teamWork')->name('Team.teamWork');
+

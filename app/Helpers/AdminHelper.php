@@ -41,11 +41,15 @@ function adminsRoleArray($admin){
     return $array;
 }
 
+/**
+ * @return array
+ */
 function slidersMainLinks(){
     return [
         ['icon-File-TextImage','صور السليدر','Slider.index'],
         ['ti-layout-media-right-alt','المركز الاعلامي','Media.index'],
-        ['icon-Download-2','وحدة التطوع','Voulnter.index']
+        ['icon-Download-2','وحدة التطوع','Voulnter.index'],
+        [' icon-Add-UserStar','اصحاب الهمم','Team.index'],
     ];
 }
 

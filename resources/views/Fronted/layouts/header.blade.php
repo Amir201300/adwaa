@@ -46,9 +46,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="/">الرئيسية</a></li>
                         <li><a href="hawkama.html"> الحوكمة والتقارير</a></li>
-                        <li><a href="hemm.html">اصحاب الهمم</a></li>
+                        <li><a href="{{route('Team.Team')}}">اصحاب الهمم</a></li>
                         <li><a href="about.html"> تعرف علينا</a></li>
                         <li><a href="{{route('General.volunteer')}}">  وحدة التطوع </a></li>
                         <li><a href="{{route('General.media')}}">  المركز الإعلامي </a></li>

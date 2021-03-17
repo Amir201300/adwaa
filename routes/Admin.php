@@ -60,6 +60,35 @@ Route::prefix('Admin')->group(function () {
             Route::get('/ChangeStatus/{id}', 'VoulnterController@ChangeStatus')->name('Voulnter.ChangeStatus');
         });
 
+        /** Team Route */
+        Route::prefix('Team')->group(function () {
+            Route::get('/index', 'TeamController@index')->name('Team.index');
+            Route::get('/allData', 'TeamController@allData')->name('Team.allData');
+            Route::post('/create', 'TeamController@create')->name('Team.create');
+            Route::get('/edit/{id}', 'TeamController@edit')->name('Team.edit');
+            Route::post('/update', 'TeamController@update')->name('Team.update');
+            Route::get('/destroy/{id}', 'TeamController@destroy')->name('Team.destroy');
+            Route::get('/ChangeStatus/{id}', 'TeamController@ChangeStatus')->name('Team.ChangeStatus');
+            Route::get('/view/{id}', 'TeamController@view')->name('Team.View');
+        });
+
+        /** Skills Route */
+        Route::prefix('Skills')->group(function () {
+            Route::get('/allData/{id}', 'SkillsController@allData')->name('Skills.allData');
+            Route::post('/create', 'SkillsController@create')->name('Skills.create');
+            Route::get('/edit/{id}', 'SkillsController@edit')->name('Skills.edit');
+            Route::post('/update', 'SkillsController@update')->name('Skills.update');
+            Route::get('/destroy/{id}', 'SkillsController@destroy')->name('Skills.destroy');
+        });
+
+        /** Work Route */
+        Route::prefix('Work')->group(function () {
+            Route::get('/allData/{id}', 'WorkController@allData')->name('Work.allData');
+            Route::post('/create', 'WorkController@create')->name('Work.create');
+            Route::get('/edit/{id}', 'WorkController@edit')->name('Work.edit');
+            Route::post('/update', 'WorkController@update')->name('Work.update');
+            Route::get('/destroy/{id}', 'WorkController@destroy')->name('Work.destroy');
+        });
     });
 });
 

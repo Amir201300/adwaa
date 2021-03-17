@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @param $title
+ * @return string
+ */
 function gePageSection($title){
     return '<div class="page-title-section">
         <div class="page-title-wrap">

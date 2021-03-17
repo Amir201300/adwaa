@@ -4,4 +4,5 @@
 <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
 
 @include('Admin.includes.scripts.FormsHelper')
+@include('Admin.includes.scripts.newForm')
 @include('Admin.includes.scripts.AlertHelper')
