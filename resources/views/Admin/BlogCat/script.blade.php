@@ -23,22 +23,19 @@
 
         buttons: ['copy', 'excel', 'pdf'],
 
-        ajax: "{{ route('About_us.allData')}}",
+        ajax: "{{ route('BlogCat.allData')}}",
 
         columns: [
             {data: 'checkBox', name: 'checkBox'},
             {data: 'id', name: 'id'},
-            {data: 'title', name: 'title'},
-            {data: 'image', name: 'image'},
-            {data: 'our_phone', name: 'our_phone'},
-            {data: 'our_email', name: 'our_email'},
+            {data: 'name', name: 'name'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
 
     $('#formSubmit').submit(function (e) {
         e.preventDefault();
-        saveOrUpdate(  "{{ route('About_us.update') }}");
+        saveOrUpdate( save_method == 'add' ?"{{ route('BlogCat.create') }}" : "{{ route('BlogCat.update') }}");
     });
 
 
@@ -51,7 +48,7 @@
         $('#loadEdit_' + id).css({'display': ''});
 
         $.ajax({
-            url: "/Admin/About_us/edit/" + id,
+            url: "/Admin/BlogCat/edit/" + id,
             type: "GET",
             dataType: "JSON",
 
@@ -61,24 +58,46 @@
 
                 $('#save').text('تعديل');
 
-                $('#titleOfModel').text('تعديل المعلومات');
+                $('#titleOfModel').text('تعديل القسم');
 
                 $('#formSubmit')[0].reset();
 
                 $('#formModel').modal();
 
-                $('#title').val(data.title);
-                $('#our_vision').val(data.our_vision);
-                $('#our_massage').val(data.our_massage);
-                $('#our_goals').val(data.our_goals);
-                $('#about_us').val(data.about_us);
-                $('#our_phone').val(data.our_phone);
-                $('#our_email').val(data.our_email);
+                $('#name').val(data.name);
                 $('#id').val(data.id);
             }
         });
     }
 
 
+    function deleteFunction(id,type) {
+        if (type == 2 && checkArray.length == 0) {
+            alert('لم تقم بتحديد اي عناصر للحذف');
+        } else if (type == 1){
+            url =  "/Admin/BlogCat/destroy/" + id;
+            deleteProccess(url);
+        }else{
+            url= "/Admin/BlogCat/destroy/" + checkArray + '?type=2';
+            deleteProccess(url);
+            checkArray=[];
+        }
+    }
 
+
+</script>
+
+<script>
+    function ChangeStatus(status,id) {
+        Toset('طلبك قيد التنفيذ','info','',false);
+        $.ajax({
+            url : '/Admin/BlogCat/ChangeStatus/' +id +'?status='+status,
+            type : 'get',
+            success : function(data){
+                $.toast().reset('all');
+                table.ajax.reload();
+                Toset('تمت العملية بنجاح','success','',5000);
+            }
+        })
+    }
 </script>

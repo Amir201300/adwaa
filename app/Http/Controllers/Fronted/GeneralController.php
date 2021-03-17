@@ -30,4 +30,11 @@ class GeneralController extends Controller
         return view('Fronted.GeneralPages.volunteer');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function contact_us(){
+        return view('Fronted.GeneralPages.contact_us');
+    }
+
 }

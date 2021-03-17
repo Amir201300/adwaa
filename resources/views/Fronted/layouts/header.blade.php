@@ -56,9 +56,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">الخدمات الإلكترونية <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li class="dropdown dropdown-submenu">
-                                    <a href="active_member.html" class="dropdown-toggle" >عضو عامل</a>
-                                    <a href="associate_member.html" class="dropdown-toggle" >عضو منتسب </a>
-
+                                    <a href="{{route('Subscribe.Active')}}" class="dropdown-toggle" >عضو عامل</a>
+                                    <a href="{{route('Subscribe.Associate')}}" class="dropdown-toggle" >عضو منتسب </a>
                                 </li>
 
                             </ul>
@@ -67,8 +66,8 @@
 
                         <li><a href="activites.html">  أنشطتنــا </a></li>
 
-                        <li><a href="blog.html">  المدونة </a></li>
-                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li><a href="{{route('Blog.allBlog')}}">  المدونة </a></li>
+                        <li><a href="{{route('General.contact_us')}}">تواصل معنا</a></li>
                     </ul>
 
                 </div>
