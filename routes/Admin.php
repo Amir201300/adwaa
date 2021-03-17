@@ -89,6 +89,34 @@ Route::prefix('Admin')->group(function () {
             Route::post('/update', 'WorkController@update')->name('Work.update');
             Route::get('/destroy/{id}', 'WorkController@destroy')->name('Work.destroy');
         });
+
+        /** Cat_reports Route */
+        Route::prefix('Cat_reports')->group(function () {
+            Route::get('/index', 'Cat_reportsController@index')->name('Cat_reports.index');
+            Route::get('/allData', 'Cat_reportsController@allData')->name('Cat_reports.allData');
+            Route::post('/create', 'Cat_reportsController@create')->name('Cat_reports.create');
+            Route::get('/edit/{id}', 'Cat_reportsController@edit')->name('Cat_reports.edit');
+            Route::post('/update', 'Cat_reportsController@update')->name('Cat_reports.update');
+            Route::get('/destroy/{id}', 'Cat_reportsController@destroy')->name('Cat_reports.destroy');
+        });
+
+        /** Reports Route */
+        Route::prefix('Reports')->group(function () {
+            Route::get('/index', 'ReportsController@index')->name('Reports.index');
+            Route::get('/allData', 'ReportsController@allData')->name('Reports.allData');
+            Route::post('/create', 'ReportsController@create')->name('Reports.create');
+            Route::get('/edit/{id}', 'ReportsController@edit')->name('Reports.edit');
+            Route::post('/update', 'ReportsController@update')->name('Reports.update');
+            Route::get('/destroy/{id}', 'ReportsController@destroy')->name('Reports.destroy');
+        });
+
+        /** About_us Route */
+        Route::prefix('About_us')->group(function () {
+            Route::get('/index', 'About_usController@index')->name('About_us.index');
+            Route::get('/allData', 'About_usController@allData')->name('About_us.allData');
+            Route::get('/edit/{id}', 'About_usController@edit')->name('About_us.edit');
+            Route::post('/update', 'About_usController@update')->name('About_us.update');
+        });
     });
 });
 

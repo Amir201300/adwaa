@@ -50,6 +50,7 @@ function slidersMainLinks(){
         ['ti-layout-media-right-alt','المركز الاعلامي','Media.index'],
         ['icon-Download-2','وحدة التطوع','Voulnter.index'],
         [' icon-Add-UserStar','اصحاب الهمم','Team.index'],
+        ['icon-info','عن الجمعيه ','About_us.index'],
     ];
 }
 

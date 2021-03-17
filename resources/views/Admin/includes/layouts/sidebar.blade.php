@@ -77,6 +77,40 @@
                 </li>
                 @endforeach
 
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                       aria-expanded="false">
+                        <i class="icon-Record"></i>
+                        <span class="hide-menu">الحوكمه و التقارير </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Cat_reports.index')}}"
+                               aria-expanded="false">
+                                <i class="icon-list"></i>
+                                <span class="hide-menu">اقسام التقارير</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Reports.index',['type'=>1])}}"
+                               aria-expanded="false">
+                                <i class="icon-Administrator"></i>
+                                <span class="hide-menu">الحوكمه </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Reports.index',['type'=>2])}}"
+                               aria-expanded="false">
+                                <i class="icon-Administrator"></i>
+                                <span class="hide-menu">التقارير </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
 
 
 

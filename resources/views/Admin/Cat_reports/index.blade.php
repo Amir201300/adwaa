@@ -1,8 +1,7 @@
 @extends('Admin.includes.layouts.master')
 
 @section('title')
-    المركز الاعلامي
-
+اقسام التقارير
 @endsection
 
 @section('style')
@@ -30,7 +29,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="{{route('admin.dashboard')}}">الرشيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">المركز الاعلامي </li>
+                                <li class="breadcrumb-item active" aria-current="page">اقسام التقارير </li>
                             </ol>
                         </nav>
                     </div>
@@ -53,11 +52,11 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex no-block align-items-center m-b-30">
-                                <h4 class="card-title">المركز الاعلامي </h4>
+                                <h4 class="card-title">اقسام التقارير </h4>
                                 <div class="ml-auto">
                                     <div class="btn-group">
                                         <button  class="btn btn-dark" id="titleOfText" data-toggle="modal" onclick="addFunction()">
-                                            اضافة صورة جديد
+                                            اضافة قسم جديد
                                         </button>
                                         &nbsp;
                                         <button  class="btn btn-danger " data-toggle="modal" onclick="deleteFunction(0,2)">
@@ -75,8 +74,7 @@
                                     <tr>
                                         <th class="sorting_asc" tabindex="0" aria-controls="file_export" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" : activate to sort column descending" style="width: 0px;"> </th>
                                         <th>#</th>
-                                        <th>الصوره</th>
-                                        <th>الحاله</th>
+                                        <th>الاسم</th>
                                         <th>الاختيارات</th>
 
                                     </tr>
@@ -108,7 +106,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-    @include('Admin.Media.form')
+    @include('Admin.Cat_reports.form')
 
     <!-- ============================================================== -->
         <!-- End footer -->
@@ -126,6 +124,6 @@
             });
         });
     </script>
-    @include('Admin.Media.script')
+    @include('Admin.Cat_reports.script')
 
 @endsection
