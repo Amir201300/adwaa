@@ -17,3 +17,17 @@ function gePageSection($title){
         </div>
     </div>';
 }
+
+/**
+ * @return mixed
+ */
+function about(){
+    return \App\Models\About_us::first();
+}
+
+/**
+ * @return mixed
+ */
+function social(){
+    return \App\Models\Socail::get();
+}

@@ -51,6 +51,7 @@ function slidersMainLinks(){
         ['icon-Download-2','وحدة التطوع','Voulnter.index'],
         [' icon-Add-UserStar','اصحاب الهمم','Team.index'],
         ['icon-info','عن الجمعيه ','About_us.index'],
+        ['icon-info','روابط التواصل الاجتماعي ','Socail.index'],
     ];
 }
 

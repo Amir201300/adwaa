@@ -54,7 +54,7 @@ class About_usController extends Controller
 
         $About_us = About_us::find($request->id);
         $this->save_info($request,$About_us);
-        return $this->apiResponseMessage(1,'تم تعديل القسم بنجاح',200);
+        return $this->apiResponseMessage(1,'تم التعديل بنجاح',200);
     }
 
     /**
@@ -73,6 +73,10 @@ class About_usController extends Controller
         $About_us->our_vision=$request->our_vision;
         $About_us->our_massage=$request->our_massage;
         $About_us->our_goals=$request->our_goals;
+        if($request->lat)
+            $About_us->lat=$request->lat;
+        if($request->lng)
+            $About_us->lng=$request->lng;
         $About_us->save();
     }
 

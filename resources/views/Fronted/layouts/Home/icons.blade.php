@@ -1,7 +1,7 @@
 <div class="home-icons pd-top-80 pd-bottom-80">
     <div class="container-fluid">
 
-        <h1 class="intro-title">قيامــــــــــــنا</h1>
+        <h1 class="intro-title">قيمنا</h1>
 
 
         <div class="row">

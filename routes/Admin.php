@@ -27,6 +27,33 @@ Route::prefix('Admin')->group(function () {
             Route::get('/destroy/{id}', 'AdminController@destroy')->name('Admin.destroy');
         });
 
+        /** Socail */
+        Route::prefix('Socail')->group(function () {
+            Route::get('/index', 'SocailController@index')->name('Socail.index');
+            Route::get('/allData', 'SocailController@allData')->name('Socail.allData');
+            Route::post('/create', 'SocailController@create')->name('Socail.create');
+            Route::get('/edit/{id}', 'SocailController@edit')->name('Socail.edit');
+            Route::post('/update', 'SocailController@update')->name('Socail.update');
+            Route::get('/destroy/{id}', 'SocailController@destroy')->name('Socail.destroy');
+        });
+
+        /** Subscribe */
+        Route::prefix('Subscribe')->group(function () {
+            Route::get('/index', 'SubscribeController@index')->name('Subscribe.index');
+            Route::get('/allData', 'SubscribeController@allData')->name('Subscribe.allData');
+            Route::get('/destroy/{id}', 'SubscribeController@destroy')->name('Subscribe.destroy');
+            Route::get('/show/{id}', 'SubscribeController@show')->name('Subscribe.show');
+            Route::get('/ChangeStatus/{id}', 'SubscribeController@ChangeStatus')->name('Subscribe.ChangeStatus');
+        });
+
+        /** Contact */
+        Route::prefix('Contact')->group(function () {
+            Route::get('/index', 'ContactController@index')->name('Contact.index');
+            Route::get('/allData', 'ContactController@allData')->name('Contact.allData');
+            Route::get('/destroy/{id}', 'ContactController@destroy')->name('Contact.destroy');
+            Route::get('/show/{id}', 'ContactController@show')->name('Contact.show');
+        });
+
         /** Slider Route */
         Route::prefix('Slider')->group(function () {
             Route::get('/index', 'SliderController@index')->name('Slider.index');

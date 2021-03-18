@@ -4,19 +4,18 @@
             <div class="row">
                 <div class="col-sm-6 col-md-5 col-lg-4">
                     <div class="phone">
-                        <i class="fa fa-volume-control-phone"></i>+ 215 1256 845
+                        <i class="fa fa-volume-control-phone"></i>+ {{about()->our_phone}}
                     </div>
                     <div class="email">
-                        <i class="fa fa-envelope"></i>info@becharity.com
+                        <i class="fa fa-envelope"></i>{{about()->our_email}}
                     </div>
                 </div>
 
                 <div class="hidden-xs col-sm-6 col-md-4 col-lg-4">
                     <div class="social">
-                        <a class="icon-facebook" href="#"><i class="fa fa-facebook-square"></i></a>
-                        <a class="icon-twitter" href="#"><i class="fa fa-twitter-square"></i></a>
-                        <a class="icon-pinterest" href="#"><i class="fa fa-pinterest-square"></i></a>
-                        <a class="icon-google-plus" href="#"><i class="fa fa-google-plus-square"></i></a>
+                        @foreach(social() as $row)
+                        <a class="icon-{{$row->name}}" target="_blank" href="{{$row->link}}"><i class="fa fa-{{$row->name}}-square"></i></a>
+                            @endforeach
                     </div>
 
 
@@ -29,7 +28,7 @@
 
     <div class="container">
         <div class="col-md-6"><a href="/"><img class="اضواء الخير" src="/Fronted/images/logo.png" alt="logo"></a></div>
-        <div class="col-md-6"> <a class="navbar-brand" href="index.html"><img class="رؤية 2030" src="/Fronted/images/vision-logo.png" alt="logo"></a></div></div>
+        <div class="col-md-6"> <a class="navbar-brand" href="/"><img class="رؤية 2030" src="/Fronted/images/vision-logo.png" alt="logo"></a></div></div>
 
 
     <div id="main-nav" class="main-nav">
@@ -47,9 +46,9 @@
                 <div class="collapse navbar-collapse" id="main-navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/">الرئيسية</a></li>
-                        <li><a href="hawkama.html"> الحوكمة والتقارير</a></li>
+                        <li><a href="{{route('General.Reports')}}"> الحوكمة والتقارير</a></li>
                         <li><a href="{{route('Team.Team')}}">اصحاب الهمم</a></li>
-                        <li><a href="about.html"> تعرف علينا</a></li>
+                        <li><a href="{{route('General.about_us')}}"> تعرف علينا</a></li>
                         <li><a href="{{route('General.volunteer')}}">  وحدة التطوع </a></li>
                         <li><a href="{{route('General.media')}}">  المركز الإعلامي </a></li>
                         <li class="dropdown">

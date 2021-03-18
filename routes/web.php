@@ -26,7 +26,10 @@ Route::get('/', function () {
 /** General pages */
 Route::get('/media', 'GeneralController@media')->name('General.media');
 Route::get('/volunteer', 'GeneralController@volunteer')->name('General.volunteer');
+Route::post('/saveContactUs', 'GeneralController@saveContactUs')->name('General.saveContactUs');
 Route::get('/contact_us', 'GeneralController@contact_us')->name('General.contact_us');
+Route::get('/about_us', 'GeneralController@about_us')->name('General.about_us');
+Route::get('/Reports', 'GeneralController@Reports')->name('General.Reports');
 
 /** Team Routes */
 Route::get('/Team', 'TeamController@Team')->name('Team.Team');

@@ -50,7 +50,7 @@ class SubscribeController extends Controller
         $Subscribe->nationality=$request->nationality;
         $Subscribe->id_number=$request->id_number;
         $Subscribe->job=$request->job;
-        $Subscribe->status=0;
+        $Subscribe->status=2;
         $Subscribe->save();
         return response()->json(['status'=>1,'message'=>'تم تسجيل العضوية وسيقوم فريقنا بالتواصل معك']);
     }

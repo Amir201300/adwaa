@@ -1,6 +1,5 @@
 @php
-    $orders=\App\Models\Order::take(7)->orderBy('id','desc')->get();
-    $users=\App\Models\User::take(7)->orderBy('id','desc')->get();
+    $active=\App\Models\Subscribe::take(7)->orderBy('id','desc')->where('type',1)->get();
 @endphp
 <div class="row">
     <!-- column -->
@@ -10,7 +9,7 @@
                 <h4 class="card-title">اخر الطلبات</h4>
                 <div class="feed-widget scrollable" style="height:450px;">
                     <ul class="list-style-none feed-body m-0 p-b-20">
-                        @foreach($orders as $row)
+                        @foreach($active as $row)
                         <li class="feed-item">
                             <div class="feed-icon">
                                 <img src="{{getImageUrl('Stores',$row->store ? $row->store->icon : null)}}" width="30" height="30">
@@ -31,12 +30,12 @@
                 <h4 class="card-title">اخر الاعضاء المسجلين</h4>
                 <div class="feed-widget scrollable" style="height:450px;">
                     <ul class="list-style-none feed-body m-0 p-b-20">
-                        @foreach($users as $row)
+                        @foreach($active as $row)
                             <li class="feed-item">
                                 <div class="feed-icon">
                                     <img src="{{getImageUrl('users',$row->image)}}" width="30" height="30">
                                 </div>
-                                <a style=" cursor: pointer" onclick="UserInfo('{{$row->id}}')">{{$row->name}}.</a>
+                                <a style=" cursor: pointer" onclick="">{{$row->name}}.</a>
                                 <span class="ml-auto font-12 text-muted">{{ $row->created_at->format('d M') }}</span>
                             </li>
                         @endforeach

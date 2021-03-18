@@ -40,31 +40,33 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="example-email">عن الجمعيه</label>
-                                <textarea type="text" id="about_us" name="about_us"  class="form-control" ></textarea>
-                            </div>
-                        </div>
+
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-email">رؤيتنا</label>
-                                <textarea type="text" id="our_vision" name="our_vision"  class="form-control" ></textarea>
+                                <textarea type="text" cols="6" rows="4" id="our_vision" name="our_vision"  class="form-control" ></textarea>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-email">رسالتنا</label>
-                                <textarea type="text" id="our_massage" name="our_massage"  class="form-control" ></textarea>
+                                <textarea type="text" cols="6" rows="4" id="our_massage" name="our_massage"  class="form-control" ></textarea>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="example-email">اهدافنا</label>
-                                <textarea type="text" id="our_goals" name="our_goals"  class="form-control" ></textarea>
+                                <textarea type="text" cols="6" rows="4" id="our_goals" name="our_goals"  class="form-control" ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="example-email">عن الجمعيه</label>
+                                <textarea cols="6" rows="4" type="text" id="about_us" name="about_us"  class="form-control" ></textarea>
                             </div>
                         </div>
 

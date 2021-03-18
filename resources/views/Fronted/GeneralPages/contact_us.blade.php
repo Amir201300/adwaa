@@ -18,7 +18,7 @@
                             <img src="/Fronted/images/about1.png">
                             <div class="media-body">
                                 <h3 class="feature-title">المقر</h3>
-                                <div>بى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص .</div>
+                                <div>{{about()->title}}</div>
                             </div>
                         </div>
                     </div>
@@ -31,8 +31,7 @@
 
                             <div class="media-body">
                                 <h3 class="feature-title">التليفون</h3>
-                                <div>966558747267+</div>
-                                <div>966558747267+</div>
+                                <div>{{about()->our_phone}}</div>
                             </div>
                         </div>
                     </div>
@@ -45,7 +44,7 @@
 
                             <div class="media-body">
                                 <h3 class="feature-title">البريد الالكتروني</h3>
-                                <div>info@dwaaelkhair.org.sa</div>
+                                <div>{{about()->our_email}}</div>
                                 <div><br/></div>
                             </div>
                         </div>
@@ -63,15 +62,16 @@
 
                 <div class="col-sm-12 contact-main mg-bottom-50">
                     <h3 class="form-title">إرسال رسالة</h3>
-                    <form class="contact-form" action="#" method="POST">
+                    <form id="commentForm" class="contact-form" >
+                        @csrf
                         <label class="contact-title" for="message">الرسالة</label>
-                        <textarea id="message" name="message" class="input-message" rows="7" cols="30"
+                        <textarea required id="message" name="message" class="input-message" rows="7" cols="30"
                                   placeholder="نص الرسالة ...."></textarea>
                         <label class="contact-title" for="name">الاسم بالكامل</label>
-                        <input id="name" name="name" class="input" type="text" placeholder="الاسم بالكامل"/>
+                        <input required id="name" name="name" class="input" type="text" placeholder="الاسم بالكامل"/>
                         <label class="contact-title" for="email">البريد الالكتروني</label>
                         <input id="email" name="email" class="input" type="text" placeholder="example@gmail.com"/>
-                        <input class="btn" type="submit" value="إرسال"/>
+                        <input class="btn" type="submit" id="saveComment" value="إرسال"/>
                     </form>
                 </div>
             </div>
@@ -98,7 +98,7 @@
     </script>
     <script type="text/javascript">
         function initialize() {
-            var latlng = new google.maps.LatLng('30.029539','31.210131');
+            var latlng = new google.maps.LatLng("{{about()->lat}}","{{about()->lng}}");
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: latlng,
                 zoom: 13
@@ -120,5 +120,38 @@
             });
         }
         google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+    @include('Admin.includes.scripts.AlertHelper')
+    <script>
+        $('#commentForm').submit(function (e) {
+            e.preventDefault();
+            $("#saveComment").attr("disabled", true);
+
+            Toset('الطلب قيد التتنفيد', 'info', 'يتم تنفيذ طلبك الان', false);
+            var formData = new FormData($('#commentForm')[0]);
+            $.ajax({
+                url: '/saveContactUs',
+                type: "post",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.status == 1) {
+
+                        $("#saveComment").attr("disabled", false);
+
+                        $.toast().reset('all');
+                        swal(data.message, {
+                            icon: "success",
+                        });
+                        $('#commentForm')[0].reset();
+
+                        $("#saveComment").attr("disabled", false);
+                    }
+                }
+            });
+
+        })
     </script>
     @endsection

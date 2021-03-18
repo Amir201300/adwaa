@@ -12,10 +12,18 @@
                 <div class="modal-body">
                     <div class="row">
 
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-email">الاسم</label>
-                                <input type="text" id="name" name="name"  class="form-control"   >
+                                <input type="text" id="name" name="name" placeholder="مثال : facebook" required class="form-control"   >
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="example-email">الرابط</label>
+                                <input type="text" id="link" name="link" required class="form-control"   >
                             </div>
                         </div>
 

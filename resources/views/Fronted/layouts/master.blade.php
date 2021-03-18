@@ -38,6 +38,7 @@
     <script src="/Fronted//js/respond.min.js"></script>
 
     <![endif]-->
+    @yield('style')
 </head>
 <body>
 

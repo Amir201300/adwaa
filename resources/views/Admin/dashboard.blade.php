@@ -1,7 +1,7 @@
 
 @extends('Admin.includes.layouts.master')
 @section('title')
-الصفحة الرئيسية
+لوحة التحكم
 @endsection
 
 @section('content')
@@ -35,8 +35,8 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-{{--                @include('Admin.includes.homeAdmin.counts')--}}
-{{--                @include('Admin.includes.homeAdmin.orders')--}}
+                @include('Admin.includes.homeAdmin.counts')
+                @include('Admin.includes.homeAdmin.orders')
 
 {{--            @include('Admin.includes.homeAdmin.reviews')--}}
         </div>

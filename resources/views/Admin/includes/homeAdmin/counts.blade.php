@@ -9,10 +9,10 @@
                                     </span>
                 </div>
                 <div>
-                    عدد الطلبات
+                    عدد الاخبار
                 </div>
                 <div class="ml-auto">
-                    <h2 class="m-b-0 font-light">{{\App\Models\Order::count()}}</h2>
+                    <h2 class="m-b-0 font-light">{{\App\Models\Blog::count()}}</h2>
                 </div>
             </div>
         </div>
@@ -24,15 +24,15 @@
             <div class="d-flex align-items-center">
                 <div class="m-r-10">
                                     <span class="btn btn-circle btn-lg btn-info">
-                                        <i class="ti-wallet text-white"></i>
+                                        <i class=" icon-Add-User text-white"></i>
                                     </span>
                 </div>
                 <div>
-                    السعر الكلي للطلبات
+                    عدد طلبات الاشتراكات العاملة
 
                 </div>
                 <div class="ml-auto">
-                    <h2 class="m-b-0 font-light">{{\App\Models\Order::sum('total_price')}}</h2>
+                    <h2 class="m-b-0 font-light">{{\App\Models\Subscribe::where('type',1)->count()}}</h2>
                 </div>
             </div>
         </div>
@@ -44,15 +44,15 @@
             <div class="d-flex align-items-center">
                 <div class="m-r-10">
                                     <span class="btn btn-circle btn-lg bg-success">
-                                        <i class="ti-shopping-cart text-white"></i>
+                                        <i class="icon-Add-UserStar text-white"></i>
                                     </span>
                 </div>
                 <div>
-                    عدد المنتجات
+                    عدد طلبات الاشتراكات المنتسبة
 
                 </div>
                 <div class="ml-auto">
-                    <h2 class="m-b-0 font-light">{{\App\Models\Product::count()}}</h2>
+                    <h2 class="m-b-0 font-light">{{\App\Models\Subscribe::where('type',2)->count()}}</h2>
                 </div>
             </div>
         </div>
@@ -64,15 +64,15 @@
             <div class="d-flex align-items-center">
                 <div class="m-r-10">
                                     <span class="btn btn-circle btn-lg bg-warning">
-                                        <i class="fa fa-user text-white"></i>
+                                        <i class="icon-Address-Book2 text-white"></i>
                                     </span>
                 </div>
                 <div>
-                    عدد الاعضاء
+                    عدد التقارير
 
                 </div>
                 <div class="ml-auto">
-                    <h2 class="m-b-0 font-light">{{\App\Models\User::count()}}</h2>
+                    <h2 class="m-b-0 font-light">{{\App\Models\Reports::count()}}</h2>
                 </div>
             </div>
         </div>

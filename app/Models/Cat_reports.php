@@ -11,6 +11,6 @@ class Cat_reports extends Model
      */
     public function reports()
     {
-        return $this->hasMany('App\Models\Reports','cat_id');
+        return $this->hasMany(Reports::class,'cat_id');
     }
 }

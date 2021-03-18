@@ -48,36 +48,47 @@
                 </li>
 
 
-{{--                <li class="sidebar-item">--}}
-{{--                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-{{--                       aria-expanded="false">--}}
-{{--                        <i class="icon-Add-UserStar"></i>--}}
-{{--                        <span class="hide-menu"> المديرين والمستخدمين </span>--}}
-{{--                    </a>--}}
-{{--                    <ul aria-expanded="false" class="collapse  first-level">--}}
-{{--                        @if(in_array(9,adminsRoleArray(Auth::guard('Admin')->user())))--}}
-{{--                        <li class="sidebar-item">--}}
-{{--                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Admin.index')}}"--}}
-{{--                               aria-expanded="false">--}}
-{{--                                <i class="icon-Administrator"></i>--}}
-{{--                                <span class="hide-menu">المديرين</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        @endif--}}
+                {{--                <li class="sidebar-item">--}}
+                {{--                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
+                {{--                       aria-expanded="false">--}}
+                {{--                        <i class="icon-Add-UserStar"></i>--}}
+                {{--                        <span class="hide-menu"> المديرين والمستخدمين </span>--}}
+                {{--                    </a>--}}
+                {{--                    <ul aria-expanded="false" class="collapse  first-level">--}}
+                {{--                        @if(in_array(9,adminsRoleArray(Auth::guard('Admin')->user())))--}}
+                {{--                        <li class="sidebar-item">--}}
+                {{--                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Admin.index')}}"--}}
+                {{--                               aria-expanded="false">--}}
+                {{--                                <i class="icon-Administrator"></i>--}}
+                {{--                                <span class="hide-menu">المديرين</span>--}}
+                {{--                            </a>--}}
+                {{--                        </li>--}}
+                {{--                        @endif--}}
 
-{{--                    </ul>--}}
-{{--                </li>--}}
-                @foreach(slidersMainLinks() as $row)
+                {{--                    </ul>--}}
+                {{--                </li>--}}
+
                 <li class="sidebar-item">
-                    <a class="sidebar-link  waves-effect waves-dark" href="{{route($row[2])}}"
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                        aria-expanded="false">
-                        <i class="{{$row[0]}}"></i>
-                        <span class="hide-menu">{{$row[1]}}</span>
+                        <i class="icon-File-TextImage"></i>
+                        <span class="hide-menu"> الاعدادات الرئيسية </span>
                     </a>
-                </li>
-                @endforeach
+                    <ul aria-expanded="false" class="collapse  first-level">
 
-<<<<<<< HEAD
+                        @foreach(slidersMainLinks() as $row)
+                            <li class="sidebar-item">
+                                <a class="sidebar-link  waves-effect waves-dark" href="{{route($row[2])}}"
+                                   aria-expanded="false">
+                                    <i class="icon-Administrator"></i>
+                                    <span class="hide-menu">{{$row[1]}}</span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+
+                {{-- Reports Route --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                        aria-expanded="false">
@@ -90,12 +101,13 @@
                             <a class="sidebar-link  waves-effect waves-dark" href="{{route('Cat_reports.index')}}"
                                aria-expanded="false">
                                 <i class="icon-list"></i>
-                                <span class="hide-menu">اقسام التقارير</span>
+                                <span class="hide-menu">اقسام الحوكمة</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Reports.index',['type'=>1])}}"
+                            <a class="sidebar-link  waves-effect waves-dark"
+                               href="{{route('Reports.index',['type'=>1])}}"
                                aria-expanded="false">
                                 <i class="icon-Administrator"></i>
                                 <span class="hide-menu">الحوكمه </span>
@@ -103,7 +115,8 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Reports.index',['type'=>2])}}"
+                            <a class="sidebar-link  waves-effect waves-dark"
+                               href="{{route('Reports.index',['type'=>2])}}"
                                aria-expanded="false">
                                 <i class="icon-Administrator"></i>
                                 <span class="hide-menu">التقارير </span>
@@ -112,37 +125,73 @@
 
                     </ul>
                 </li>
-=======
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                   aria-expanded="false">
-                                    <i class="icon-Newspaper"></i>
-                                    <span class="hide-menu"> المدونة </span>
-                                </a>
-                                <ul aria-expanded="false" class="collapse  first-level">
+                {{-- Blog --}}
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                       aria-expanded="false">
+                        <i class="icon-Newspaper"></i>
+                        <span class="hide-menu"> المدونة </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level">
 
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link  waves-effect waves-dark" href="{{route('BlogCat.index')}}"
-                                           aria-expanded="false">
-                                            <i class="icon-Administrator"></i>
-                                            <span class="hide-menu">اقسام الاخبار</span>
-                                        </a>
-                                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('BlogCat.index')}}"
+                               aria-expanded="false">
+                                <i class="icon-Administrator"></i>
+                                <span class="hide-menu">اقسام الاخبار</span>
+                            </a>
+                        </li>
 
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link  waves-effect waves-dark" href="{{route('Blog.index')}}"
-                                           aria-expanded="false">
-                                            <i class="icon-Administrator"></i>
-                                            <span class="hide-menu">الاخبار</span>
-                                        </a>
-                                    </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Blog.index')}}"
+                               aria-expanded="false">
+                                <i class="icon-Administrator"></i>
+                                <span class="hide-menu">الاخبار</span>
+                            </a>
+                        </li>
 
-                                </ul>
-                            </li>
+                    </ul>
+                </li>
 
->>>>>>> e142323f35754c577e4bf27eb9997f882dd63cc5
+                {{-- subscribe Route --}}
+                <li class="sidebar-item">
+                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                       aria-expanded="false">
+                        <i class="icon-Love-User"></i>
+                        <span class="hide-menu">الخدمات الالكترونية </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark"
+                               href="{{route('Subscribe.index',['type'=>1])}}"
+                               aria-expanded="false">
+                                <i class="icon-list"></i>
+                                <span class="hide-menu">الاشتراكات العاملة</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark"
+                               href="{{route('Subscribe.index',['type'=>2])}}"
+                               aria-expanded="false">
+                                <i class="icon-Administrator"></i>
+                                <span class="hide-menu">الاشتراكات المنتسبة </span>
+                            </a>
+                        </li>
 
 
+                    </ul>
+                </li>
+
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Contact.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Email"></i>
+                        <span class="hide-menu">رسائل تواصل معنا</span>
+                    </a>
+                </li>
 
                 <!--end main routes section-->
 

@@ -23,21 +23,20 @@
 
         buttons: ['copy', 'excel', 'pdf'],
 
-        ajax: "{{ route('Reports.allData',['type'=>$type])}}",
+        ajax: "{{ route('Socail.allData')}}",
 
         columns: [
             {data: 'checkBox', name: 'checkBox'},
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
-            {data: 'file', name: 'file'},
-            {data: 'cat_id', name: 'cat_id'},
+            {data: 'link', name: 'link'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
 
     $('#formSubmit').submit(function (e) {
         e.preventDefault();
-        saveOrUpdate( save_method == 'add' ?"{{ route('Reports.create') }}" : "{{ route('Reports.update') }}");
+        saveOrUpdate( save_method == 'add' ?"{{ route('Socail.create') }}" : "{{ route('Socail.update') }}");
     });
 
 
@@ -50,7 +49,7 @@
         $('#loadEdit_' + id).css({'display': ''});
 
         $.ajax({
-            url: "/Admin/Reports/edit/" + id,
+            url: "/Admin/Socail/edit/" + id,
             type: "GET",
             dataType: "JSON",
 
@@ -60,15 +59,14 @@
 
                 $('#save').text('تعديل');
 
-                $('#titleOfModel').text('تعديل الحوكمه والتقارير');
+                $('#titleOfModel').text('تعديل الرابط');
 
                 $('#formSubmit')[0].reset();
 
                 $('#formModel').modal();
 
                 $('#name').val(data.name);
-                $('#cat_id').val(data.cat_id);
-                $('#type').val(data.type);
+                $('#link').val(data.link);
                 $('#id').val(data.id);
             }
         });
@@ -79,10 +77,10 @@
         if (type == 2 && checkArray.length == 0) {
             alert('لم تقم بتحديد اي عناصر للحذف');
         } else if (type == 1){
-            url =  "/Admin/Reports/destroy/" + id;
+            url =  "/Admin/Socail/destroy/" + id;
             deleteProccess(url);
         }else{
-            url= "/Admin/Reports/destroy/" + checkArray + '?type=2';
+            url= "/Admin/Socail/destroy/" + checkArray + '?type=2';
             deleteProccess(url);
             checkArray=[];
         }
@@ -95,7 +93,7 @@
     function ChangeStatus(status,id) {
         Toset('طلبك قيد التنفيذ','info','',false);
         $.ajax({
-            url : '/Admin/Reports/ChangeStatus/' +id +'?status='+status,
+            url : '/Admin/Socail/ChangeStatus/' +id +'?status='+status,
             type : 'get',
             success : function(data){
                 $.toast().reset('all');

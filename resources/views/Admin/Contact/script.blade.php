@@ -23,53 +23,43 @@
 
         buttons: ['copy', 'excel', 'pdf'],
 
-        ajax: "{{ route('Reports.allData',['type'=>$type])}}",
+        ajax: "{{ route('Contact.allData')}}",
 
         columns: [
             {data: 'checkBox', name: 'checkBox'},
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
-            {data: 'file', name: 'file'},
-            {data: 'cat_id', name: 'cat_id'},
+            {data: 'email', name: 'email'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
 
-    $('#formSubmit').submit(function (e) {
-        e.preventDefault();
-        saveOrUpdate( save_method == 'add' ?"{{ route('Reports.create') }}" : "{{ route('Reports.update') }}");
-    });
 
-
-    function editFunction(id) {
+    function showFunction(id) {
 
         save_method = 'edit';
 
         $('#err').slideUp(200);
 
-        $('#loadEdit_' + id).css({'display': ''});
+        $('#loadShow_' + id).css({'display': ''});
 
         $.ajax({
-            url: "/Admin/Reports/edit/" + id,
+            url: "/Admin/Contact/show/" + id,
             type: "GET",
             dataType: "JSON",
 
             success: function (data) {
 
-                $('#loadEdit_' + id).css({'display': 'none'});
+                $('#loadShow_' + id).css({'display': 'none'});
 
-                $('#save').text('تعديل');
+                $('#showData').modal();
 
-                $('#titleOfModel').text('تعديل الحوكمه والتقارير');
-
-                $('#formSubmit')[0].reset();
-
-                $('#formModel').modal();
-
-                $('#name').val(data.name);
-                $('#cat_id').val(data.cat_id);
-                $('#type').val(data.type);
-                $('#id').val(data.id);
+                $('#name').text(data.name);
+                $('#email').text(data.email);
+                $('#id_number').text(data.id_number);
+                $('#message').val(data.message);
+                $('#created_at').text(data.created_at);
+                $('#id').text(data.id);
             }
         });
     }
@@ -79,10 +69,10 @@
         if (type == 2 && checkArray.length == 0) {
             alert('لم تقم بتحديد اي عناصر للحذف');
         } else if (type == 1){
-            url =  "/Admin/Reports/destroy/" + id;
+            url =  "/Admin/Contact/destroy/" + id;
             deleteProccess(url);
         }else{
-            url= "/Admin/Reports/destroy/" + checkArray + '?type=2';
+            url= "/Admin/Contact/destroy/" + checkArray + '?type=2';
             deleteProccess(url);
             checkArray=[];
         }
@@ -95,7 +85,7 @@
     function ChangeStatus(status,id) {
         Toset('طلبك قيد التنفيذ','info','',false);
         $.ajax({
-            url : '/Admin/Reports/ChangeStatus/' +id +'?status='+status,
+            url : '/Admin/Contact/ChangeStatus/' +id +'?status='+status,
             type : 'get',
             success : function(data){
                 $.toast().reset('all');
@@ -104,4 +94,15 @@
             }
         })
     }
+</script>
+
+<script>
+    $('#seachForm').submit(function(e){
+        e.preventDefault();
+        var formData=$('#seachForm').serialize();
+        table.ajax.url('/Admin/Contact/allData?'+formData);
+        table.ajax.reload();
+        TosetV2('تمت العملية بنجاح','success','',5000);
+
+    })
 </script>
