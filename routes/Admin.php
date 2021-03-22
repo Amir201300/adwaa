@@ -165,6 +165,16 @@ Route::prefix('Admin')->group(function () {
             Route::get('/edit/{id}', 'About_usController@edit')->name('About_us.edit');
             Route::post('/update', 'About_usController@update')->name('About_us.update');
         });
+
+        /** Activities Route */
+        Route::prefix('Activities')->group(function () {
+            Route::get('/index', 'ActivitiesController@index')->name('Activities.index');
+            Route::get('/allData', 'ActivitiesController@allData')->name('Activities.allData');
+            Route::post('/create', 'ActivitiesController@create')->name('Activities.create');
+            Route::get('/edit/{id}', 'ActivitiesController@edit')->name('Activities.edit');
+            Route::post('/update', 'ActivitiesController@update')->name('Activities.update');
+            Route::get('/destroy/{id}', 'ActivitiesController@destroy')->name('Activities.destroy');
+        });
     });
 });
 

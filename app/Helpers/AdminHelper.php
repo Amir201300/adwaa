@@ -52,6 +52,7 @@ function slidersMainLinks(){
         [' icon-Add-UserStar','اصحاب الهمم','Team.index'],
         ['icon-info','عن الجمعيه ','About_us.index'],
         ['icon-info','روابط التواصل الاجتماعي ','Socail.index'],
+        ['icon-action-redo','انشطتنا','Activities.index'],
     ];
 }
 
