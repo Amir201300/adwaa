@@ -31,3 +31,14 @@ function about(){
 function social(){
     return \App\Models\Socail::get();
 }
+
+/**
+ * @param $limit
+ * @return mixed
+ */
+function getClients($limit){
+    $clients=\App\Models\Client::orderBy('id','desc');
+    if($limit != 0)
+        $clients=$clients->take($limit);
+    return $clients->get();
+}

@@ -46,27 +46,17 @@
                         <span class="hide-menu">الصفحة الرئيسية</span>
                     </a>
                 </li>
+                @if(in_array(5,adminsRoleArray(Auth::guard('Admin')->user())))
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Admin.index')}}"
+                       aria-expanded="false">
+                        <i class="icon-Add-UserStar"></i>
+                        <span class="hide-menu">المديرين</span>
+                    </a>
+                </li>
+                @endif
 
 
-                {{--                <li class="sidebar-item">--}}
-                {{--                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"--}}
-                {{--                       aria-expanded="false">--}}
-                {{--                        <i class="icon-Add-UserStar"></i>--}}
-                {{--                        <span class="hide-menu"> المديرين والمستخدمين </span>--}}
-                {{--                    </a>--}}
-                {{--                    <ul aria-expanded="false" class="collapse  first-level">--}}
-                {{--                        @if(in_array(9,adminsRoleArray(Auth::guard('Admin')->user())))--}}
-                {{--                        <li class="sidebar-item">--}}
-                {{--                            <a class="sidebar-link  waves-effect waves-dark" href="{{route('Admin.index')}}"--}}
-                {{--                               aria-expanded="false">--}}
-                {{--                                <i class="icon-Administrator"></i>--}}
-                {{--                                <span class="hide-menu">المديرين</span>--}}
-                {{--                            </a>--}}
-                {{--                        </li>--}}
-                {{--                        @endif--}}
-
-                {{--                    </ul>--}}
-                {{--                </li>--}}
 
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -77,6 +67,7 @@
                     <ul aria-expanded="false" class="collapse  first-level">
 
                         @foreach(slidersMainLinks() as $row)
+                            @if(in_array($row[3],adminsRoleArray(Auth::guard('Admin')->user())))
                             <li class="sidebar-item">
                                 <a class="sidebar-link  waves-effect waves-dark" href="{{route($row[2])}}"
                                    aria-expanded="false">
@@ -84,10 +75,11 @@
                                     <span class="hide-menu">{{$row[1]}}</span>
                                 </a>
                             </li>
+                            @endif
                         @endforeach
                     </ul>
                 </li>
-
+                @if(in_array(2,adminsRoleArray(Auth::guard('Admin')->user())))
                 {{-- Reports Route --}}
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -125,7 +117,9 @@
 
                     </ul>
                 </li>
+                @endif
                 {{-- Blog --}}
+                @if(in_array(3,adminsRoleArray(Auth::guard('Admin')->user())))
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                        aria-expanded="false">
@@ -152,8 +146,9 @@
 
                     </ul>
                 </li>
-
+                @endif
                 {{-- subscribe Route --}}
+                @if(in_array(4,adminsRoleArray(Auth::guard('Admin')->user())))
                 <li class="sidebar-item">
                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                        aria-expanded="false">
@@ -183,8 +178,8 @@
 
                     </ul>
                 </li>
-
-
+                @endif
+                @if(in_array(6,adminsRoleArray(Auth::guard('Admin')->user())))
                 <li class="sidebar-item">
                     <a class="sidebar-link  waves-effect waves-dark" href="{{route('Contact.index')}}"
                        aria-expanded="false">
@@ -192,6 +187,16 @@
                         <span class="hide-menu">رسائل تواصل معنا</span>
                     </a>
                 </li>
+                @endif
+                @if(in_array(13,adminsRoleArray(Auth::guard('Admin')->user())))
+                <li class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('Client.index')}}"
+                       aria-expanded="false">
+                        <i class="ti-layout-media-right-alt"></i>
+                        <span class="hide-menu">شركــاء النجاح</span>
+                    </a>
+                </li>
+                @endif
 
                 <!--end main routes section-->
 

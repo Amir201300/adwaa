@@ -5,11 +5,9 @@
                 <h2 class="section-title">شركــاء النجاح <i class="fa fa-user"></i></h2>
             </div>
             <div class="col-sm-12">
-                <img src="/Fronted/images/partner/1.png" alt="client">
-                <img src="/Fronted/images/partner/2.png" alt="client">
-                <img src="/Fronted/images/partner/3.png" alt="client">
-                <img src="/Fronted/images/partner/4.png" alt="client">
-                <img src="/Fronted/images/partner/5.png" alt="client">
+                @foreach(getClients(5) as $row)
+                <img src="{{getImageUrl('Client',$row->image)}}" alt="client">
+                    @endforeach
             </div>
         </div>
     </div>

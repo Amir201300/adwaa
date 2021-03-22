@@ -10,31 +10,32 @@
         'language': {
             'loadingRecords': '&nbsp;',
             'processing': '<div class="spinner"></div>',
-            "search": "بحث :"
+            'sSearch' : 'بحث :',
+            "paginate": {
+                "next": "التالي",
+                "previous": "السابق"
+            },
+            "sInfo": "عرض صفحة _PAGE_ من _PAGES_",
         },
         serverSide: true,
 
-         order: [[0, 'desc']],
+        order: [[0, 'desc']],
 
         buttons: ['copy', 'excel', 'pdf'],
 
-
-        ajax: "{{ route('Admin.allData') }}",
+        ajax: "{{ route('Client.allData')}}",
 
         columns: [
             {data: 'checkBox', name: 'checkBox'},
             {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-            {data: 'phone', name: 'phone'},
-            {data: 'jop', name: 'jop'},
+            {data: 'image', name: 'image'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
 
     $('#formSubmit').submit(function (e) {
         e.preventDefault();
-        saveOrUpdate(save_method =='add' ?"{{ route('Admin.create') }}": "{{ route('Admin.update') }}");
+        saveOrUpdate( save_method == 'add' ?"{{ route('Client.create') }}" : "{{ route('Client.update') }}");
     });
 
 
@@ -47,7 +48,7 @@
         $('#loadEdit_' + id).css({'display': ''});
 
         $.ajax({
-            url: "/Admin/Admin/edit/" + id,
+            url: "/Admin/Client/edit/" + id,
             type: "GET",
             dataType: "JSON",
 
@@ -56,60 +57,51 @@
                 $('#loadEdit_' + id).css({'display': 'none'});
 
                 $('#save').text('تعديل');
-                $('#titleOfModel').text('تعديل الموظف');
+
+                $('#titleOfModel').text('تعديل الصوره');
+
                 $('#formSubmit')[0].reset();
+
                 $('#formModel').modal();
-                $('#name').val(data.name);
-                $('#email').val(data.email);
-                $('#phone').val(data.phone);
-                $('#jop').val(data.jop);
+
+                $('#titleS').val(data.title);
+                $('#desc').val(data.desc);
+                $('#btn_link').val(data.btn_link);
+                $('#status').val(data.status);
+                $('#btn_name').val(data.btn_name);
                 $('#id').val(data.id);
-                for (var i=0;i<13;i++) {
-                    data.roles_ids.includes(i) ? $('#role_'+i).attr('checked', 'checked') : $('#role_'+i).prop('checked', false);
-                }
             }
         });
     }
 
 
-    function deleteFunction(id, type) {
+    function deleteFunction(id,type) {
         if (type == 2 && checkArray.length == 0) {
             alert('لم تقم بتحديد اي عناصر للحذف');
-        } else if (type == 1) {
-            url = "/Admin/Admin/destroy/" + id;
+        } else if (type == 1){
+            url =  "/Admin/Client/destroy/" + id;
             deleteProccess(url);
-        } else {
-            url = "/Admin/Admin/destroy/" + checkArray + '?type=2';
+        }else{
+            url= "/Admin/Client/destroy/" + checkArray + '?type=2';
             deleteProccess(url);
-            checkArray = [];
+            checkArray=[];
         }
     }
 
+
+</script>
+
+<script>
     function ChangeStatus(status,id) {
-        Toset('الطلب قيد التتنفيد','info','يتم تنفيذ طلبك الان',false);
+        Toset('طلبك قيد التنفيذ','info','',false);
         $.ajax({
-            url : '/Admin/Admin/ChangeStatus/' +id +'?status='+status,
+            url : '/Admin/Client/ChangeStatus/' +id +'?status='+status,
             type : 'get',
             success : function(data){
                 $.toast().reset('all');
                 table.ajax.reload();
-                swal(data.message, {
-                    icon: "success",
-                });
+                Toset('تمت العملية بنجاح','success','',5000);
             }
         })
     }
-
-</script>
-
-
-<script>
-    $('#seachForm').submit(function(e){
-        e.preventDefault();
-        var formData=$('#seachForm').serialize();
-        table.ajax.url('/Admin/Admin/allData?'+formData);
-        table.ajax.reload();
-        Toset('تمت العملية بنجاح','success','',5000);
-
-    })
 </script>

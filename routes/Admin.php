@@ -37,6 +37,15 @@ Route::prefix('Admin')->group(function () {
             Route::get('/destroy/{id}', 'SocailController@destroy')->name('Socail.destroy');
         });
 
+        /** Client */
+        Route::prefix('Client')->group(function () {
+            Route::get('/index', 'ClientController@index')->name('Client.index');
+            Route::get('/allData', 'ClientController@allData')->name('Client.allData');
+            Route::post('/create', 'ClientController@create')->name('Client.create');
+            Route::get('/edit/{id}', 'ClientController@edit')->name('Client.edit');
+            Route::post('/update', 'ClientController@update')->name('Client.update');
+            Route::get('/destroy/{id}', 'ClientController@destroy')->name('Client.destroy');
+        });
         /** Subscribe */
         Route::prefix('Subscribe')->group(function () {
             Route::get('/index', 'SubscribeController@index')->name('Subscribe.index');

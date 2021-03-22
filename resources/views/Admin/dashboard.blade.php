@@ -36,7 +36,9 @@
         <!-- ============================================================== -->
         <div class="container-fluid">
                 @include('Admin.includes.homeAdmin.counts')
+            @if(in_array(4,adminsRoleArray(Auth::guard('Admin')->user())))
                 @include('Admin.includes.homeAdmin.orders')
+            @endif
 
 {{--            @include('Admin.includes.homeAdmin.reviews')--}}
         </div>
